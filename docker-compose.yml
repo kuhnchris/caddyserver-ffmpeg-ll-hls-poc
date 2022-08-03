@@ -9,13 +9,17 @@ services:
   caddy:
     image: caddy:latest
     volumes:
+#     - ./caddy/caddy:/caddy
       - ./caddy/Caddyfile.json:/etc/caddy/Caddyfile.json
     expose:
       - 80
     ports:
       - 8888:80
+#   entrypoint: ["/caddy", "run", "--config", "/etc/caddy/Caddyfile.json"]
     entrypoint: ["caddy", "run", "--config", "/etc/caddy/Caddyfile.json"]
   uwsgi:
     build: uwsgi/
     expose:
       - 8002
+    ports:
+      - 8002:8002
