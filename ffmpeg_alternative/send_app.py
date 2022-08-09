@@ -2,7 +2,8 @@ import socket
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-sock.connect(("127.0.0.10", 8888))  # Doesn't work if socket is closed before sock.recv
+sock.connect(("127.0.0.10", 8880))  # Doesn't work if socket is closed before sock.recv
+#sock.connect(("127.0.0.10", 8888))  # Doesn't work if socket is closed before sock.recv
 # sock.connect(("127.0.0.10", 8002))  # Works fine
 
 sock.send(

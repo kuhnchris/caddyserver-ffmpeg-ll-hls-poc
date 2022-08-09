@@ -10,23 +10,12 @@
     }
   },
   "apps": {
-
     "http": {
       "grace_period": "60s",
       "servers": {
-        "files": {
-          "listen": [":8881"],
-          "routes": [{
-            "match": [ { "host": ["*"]}],
-            "handle": [{"handler": "file_server", "root": "/tmp", "browse": {}}]
-          }],
-          "automatic_https": {
-            "disable": true
-          }
-        },
         "public": {
           "listen": [
-            ":8880"
+            ":80"
           ],
           "routes": [
             {
@@ -58,7 +47,7 @@
                   },
                   "upstreams": [
                     {
-                      "dial": "localhost:8881"
+                      "dial": "uwsgi:8002"
                     }
                   ]
                 }
